@@ -1,9 +1,9 @@
 <?php
 
-namespace Marvelous\Services\SmsService;
+namespace \Services\SmsService;
 
 
-use Marvelous\Services\SmsService\SendResponse;
+use \Services\SmsService\SendResponse;
 
 interface SmsServiceInterface {
     /**

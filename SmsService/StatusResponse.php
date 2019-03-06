@@ -1,6 +1,6 @@
 <?php
 
-namespace Marvelous\Services\SmsService;
+namespace \Services\SmsService;
 
 
 class StatusResponse {

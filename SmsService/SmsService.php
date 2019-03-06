@@ -1,9 +1,9 @@
 <?php
 
-namespace Marvelous\Services\SmsService;
+namespace \Services\SmsService;
 
 use Bitrix\Main\Web\HttpClient;
-use Marvelous\Base;
+use \Base;
 
 class SmsService extends Base implements SmsServiceInterface {
 
