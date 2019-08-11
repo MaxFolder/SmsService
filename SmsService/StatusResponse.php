@@ -1,10 +1,9 @@
 <?php
 
-namespace \Services\SmsService;
+namespace SmsService;
 
 
 class StatusResponse {
-
 
     private $timeCreated;
     private $delivered;

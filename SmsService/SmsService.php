@@ -1,14 +1,17 @@
 <?php
 
-namespace \Services\SmsService;
+namespace SmsService;
 
 use Bitrix\Main\Web\HttpClient;
-use \Base;
 
-class SmsService extends Base implements SmsServiceInterface {
+
+class SmsService  implements SmsServiceInterface {
 
     private $accessKey;
     private $secretKey;
+
+    const REQUEST_SMS_SEND_URL = 'http://test-site.ru/api1/send_sms';
+    const REQUEST_SMS_INFO_URL = 'http://test-site.ru/api1/info';
 
     /**
      * SmsService constructor.
@@ -22,9 +25,9 @@ class SmsService extends Base implements SmsServiceInterface {
     }
 
     /**
-     * @param $phoneNumber
-     * @param $smsText
-     * @return SendResponse
+     * @param $url
+     * @param $postData
+     * @return mixed
      */
 
     private function sendRequest($url, $postData) {
@@ -38,27 +41,27 @@ class SmsService extends Base implements SmsServiceInterface {
     public function send($phoneNumber, $smsText) {
 
         $postData = array(
-            "access_key" => $this->accessKey,
-            "secret_key_hash" => sha1($this->secretKey),
-            "target" => $phoneNumber,
-            "content" => $smsText,
+            'access_key' => $this->accessKey,
+            'secret_key_hash' => sha1($this->secretKey),
+            'target' => $phoneNumber,
+            'content' => $smsText,
         );
 
-        $data = $this->sendRequest("http://ps.p0w.ru/api1/send_sms", $postData );
-        return new SendResponse($data["id"], $data["error"]);
+        $data = $this->sendRequest(self::REQUEST_SMS_SEND_URL, $postData );
+        return new SendResponse($data['id'], $data['error']);
     }
 
     public function smsStatus($id) {
 
         $postData = array(
-            "access_key" => $this->accessKey,
-            "secret_key_hash" => sha1($this->secretKey),
-            "id" => $id,
+            'access_key' => $this->accessKey,
+            'secret_key_hash' => sha1($this->secretKey),
+            'id' => $id,
         );
 
-        $data = $this->sendRequest("http://ps.p0w.ru/api1/info", $postData );
+        $data = $this->sendRequest(self::REQUEST_SMS_INFO_URL, $postData );
 
-        return new StatusResponse($data["info"]["created"],$data["info"]["active"], $data["info"]["delivered"], $data["info"]["target"], $data["info"]["error"]);
+        return new StatusResponse($data['info']['created'],$data['info']['active'], $data['info']['delivered'], $data['info']['target'], $data['info']['error']);
 
     }
 }

@@ -1,5 +1,5 @@
 <?php
-namespace \Services\SmsService;
+namespace SmsService;
 
 
 class SendResponse {

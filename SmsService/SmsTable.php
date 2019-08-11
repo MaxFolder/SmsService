@@ -1,6 +1,6 @@
 <?php
 
-namespace \Services\SmsService;
+namespace SmsService;
 
 
 use Bitrix\Main\Entity\BooleanField;
@@ -12,7 +12,7 @@ class SmsTable extends DataManager {
 
     public static function getTableName() {
 
-        return "marvelous_sms";
+        return "domain_sms";
     }
 
     public static function getMap() {

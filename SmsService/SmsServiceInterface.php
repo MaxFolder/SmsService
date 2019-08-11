@@ -1,7 +1,6 @@
 <?php
 
-namespace \Services\SmsService;
-
+namespace SmsService;
 
 use \Services\SmsService\SendResponse;
 
@@ -9,7 +8,7 @@ interface SmsServiceInterface {
     /**
      * @param $phoneNumber
      * @param $smsText
-     * @return SendResponse
+     * @return mixed
      */
     public function send($phoneNumber, $smsText);
     public function smsStatus($id);
