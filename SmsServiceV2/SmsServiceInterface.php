@@ -1,8 +1,6 @@
 <?php
 
-namespace SmsService;
-
-use \Services\SmsService\SendResponse;
+namespace SmsServiceV2;
 
 interface SmsServiceInterface {
     /**

@@ -1,7 +1,6 @@
 <?php
 
-namespace SmsService;
-
+namespace SmsServiceV1;
 
 class StatusResponse {
 

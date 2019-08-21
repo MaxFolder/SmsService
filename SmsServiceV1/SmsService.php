@@ -1,6 +1,6 @@
 <?php
 
-namespace SmsService;
+namespace SmsServiceV1;
 
 use Bitrix\Main\Web\HttpClient;
 

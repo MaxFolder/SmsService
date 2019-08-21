@@ -1,14 +1,14 @@
 <?php
-namespace SmsService;
 
+namespace SmsServiceV2;
 
 class SendResponse {
     private $id;
     private $error;
 
-    public function __construct($id, $error) {
-        $this->id = $id;
-        $this->error = $error;
+    public function __construct(SendResponseBuilder $builder) {
+        $this->id = $builder->getId();
+        $this->error = $builder->getError();
     }
 
     /**
